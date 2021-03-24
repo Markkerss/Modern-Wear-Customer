@@ -124,7 +124,9 @@ export default new Vuex.Store({
         })
     },
     editCart (context, payload) {
-      const cartOne = this.state.cart.filter(item => +item.id === +payload)
+      console.log(context.state.cart, '<<<<state cart before')
+      const cartOne = context.state.cart.filter(item => +item.id === +payload)
+      console.log(context.state.cart, '<<<<state cart after')
       context.commit('getItem', cartOne)
       axios
         .patch('/carts/' + payload, {quantity: context.state.item[0].quantity}, {
@@ -132,14 +134,13 @@ export default new Vuex.Store({
             access_token: localStorage.access_token
           }
         })
-        .then(data => {
-          console.log(data.data)
-          context.commit('getCart', data)
+        .then(() => {
           Swal.fire(
             'Yes!',
             'The quantity of a product in your cart has been updated',
             'success'
           )
+          context.dispatch('getCart')
           context.dispatch('getTotalPrice')
         })
         .catch(err => {
