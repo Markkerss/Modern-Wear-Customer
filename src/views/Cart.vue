@@ -6,7 +6,7 @@
         <h1 class="mt-5 mb-5" style="text-align:center">Cart</h1>
         <div class="row" style="text-align:center; margin-left:80px; margin-right:70px">
           <div class="col-sm-6 mb-5 mr-5">
-            <div class="card border-primary" style="padding-bottom:40px">
+            <div class="card border-primary" style="padding-bottom:40px; min-height:24.7rem">
                 <CartCard />
             </div>
           </div>
