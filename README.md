@@ -1,5 +1,11 @@
 # client
 
+## Customer Credentials
+```
+email: correct@mail.com
+password: 123456
+```
+
 ## Project setup
 ```
 npm install
